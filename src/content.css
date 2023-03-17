@@ -1,0 +1,5 @@
+a[title="Shorts"],
+ytd-reel-shelf-renderer,
+ytd-rich-section-renderer{
+	display:none !important;
+}

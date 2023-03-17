@@ -1,0 +1,24 @@
+{
+	"name": "shortKiller",
+	"version": "1.0.0",
+	"description": "📺🧩 shortsKiller remove shorts from YouTube. 🐦🌈",
+	"manifest_version": 2,
+	"icons": {
+		"96": "../../assets/img/icon-96.png"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://www.youtube.com/",
+				"https://www.youtube.com/*"
+			],
+			"css": [
+				"../../content.css"
+			],
+			"js": [
+				"../../content.js"
+			],
+			"run_at": "document_end"
+		}
+	]
+}
