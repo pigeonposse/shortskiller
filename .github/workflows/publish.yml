@@ -126,8 +126,8 @@ jobs:
         with:
           artifacts: "dist/comp/*.zip"
           body: |
-            🧩 View changelog at: https://github.com/pigeonposse/styleGPT/blob/main/CHANGELOG.md
-            📜 View license: https://github.com/pigeonposse/styleGPT/blob/main/LICENSE
+            🧩 View changelog at: https://github.com/pigeonposse/shortskiller/blob/main/CHANGELOG.md
+            📜 View license: https://github.com/pigeonposse/shortskiller/blob/main/LICENSE
 
 
 ############################################################################### 

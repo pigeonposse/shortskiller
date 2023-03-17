@@ -42,8 +42,6 @@ DEVELOPED BY PIGEONPOSSE
 # ShortsKiller - _Browser extension_
 
 
-<!-- Are you tired of seeing content that doesn't interest you in the YouTube Shorts section?  -->
-
 Our ***ShortsKiller*** extension will allow you to completely remove the Shorts section from YouTube, so you can **focus on the content that really matters to you**.
 
 With ShortsKiller you won't have to worry about watching videos that don't interest you, or wasting time browsing content that doesn't appeal to you. Easy to install and easy to use, our extension will help make your YouTube experience more personalized and relevant.
