@@ -1,6 +1,6 @@
 {
 	"private": true,
-	"name": "shortKiller",
+	"name": "shortsKiller",
 	"description": "📺🧩 shortsKiller remove shorts from YouTube. 🐦🌈",
 	"version": "1.0.0",
 	"type": "module",
