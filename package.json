@@ -2,7 +2,7 @@
 	"private": true,
 	"name": "shortKiller",
 	"description": "📺🧩 shortsKiller remove shorts from YouTube. 🐦🌈",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"type": "module",
 	"engines": {
 		"node": "^12.17.0 || ^14.13 || >=16.0.0",
