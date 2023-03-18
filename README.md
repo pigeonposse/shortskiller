@@ -46,7 +46,7 @@ Our ***ShortsKiller*** extension will allow you to completely remove the Shorts 
 
 With ShortsKiller you won't have to worry about watching videos that don't interest you, or wasting time browsing content that doesn't appeal to you. Easy to install and easy to use, our extension will help make your YouTube experience more personalized and relevant.
 
-## Instructions:
+## Instructions
 
 1. Download extension
 	+ [![Firefox Extension](https://img.shields.io/badge/Firefox-grey?style=flat-square)](https://addons.mozilla.org/es/firefox/addon/shortskiller/)
