@@ -51,7 +51,7 @@ With ShortsKiller you won't have to worry about watching videos that don't inter
 1. Download extension
 	+ [![Firefox Extension](https://img.shields.io/badge/Firefox-grey?style=flat-square)](https://addons.mozilla.org/es/firefox/addon/shortskiller/)
 	+ [![Chrome Extension](https://img.shields.io/badge/Chrome-grey?style=flat-square)](https://chrome.google.com/webstore/detail/shortskiller/khoggafmiibmeihpkpbkllkkdfhmokoj)
-2. Go to https://www.youtube.com
+2. Go to [Youtube](https://www.youtube.com)
 3. _Shorts_ will no longer appear on the web
 
 Stop wasting time watching content you don't like! Enjoy a more productive YouTube experience.
