@@ -41,24 +41,28 @@ DEVELOPED BY PIGEONPOSSE
 
 # ShortsKiller - _Browser extension_
 
+[![HEADER](docs/banner.png)](https://youtu.be/UN1hu4e-VmM)
 
-Our ***ShortsKiller*** extension will allow you to completely remove the Shorts section from YouTube, so you can **focus on the content that really matters to you**.
+Our ***ShortsKiller*** extension will allow you to completely remove the _Shorts_ section from YouTube, so you can **focus on the content that really matters to you**.
 
-With ShortsKiller you won't have to worry about watching videos that don't interest you, or wasting time browsing content that doesn't appeal to you. Easy to install and easy to use, our extension will help make your YouTube experience more personalized and relevant.
+With ***ShortsKiller*** you won't have to worry about watching videos that don't interest you, or wasting time browsing content that doesn't appeal to you. 
+
+> Easy to install and easy to use
+
+## 🧩 Download extension
+
+- [![Firefox Extension](https://img.shields.io/badge/Firefox-grey?style=flat-square)](https://addons.mozilla.org/es/firefox/addon/shortskiller/)
+- [![Chrome Extension](https://img.shields.io/badge/Chrome-grey?style=flat-square)](https://chrome.google.com/webstore/detail/shortskiller/khoggafmiibmeihpkpbkllkkdfhmokoj)
 
 ## Instructions
 
-1. Download extension
-	+ [![Firefox Extension](https://img.shields.io/badge/Firefox-grey?style=flat-square)](https://addons.mozilla.org/es/firefox/addon/shortskiller/)
-	+ [![Chrome Extension](https://img.shields.io/badge/Chrome-grey?style=flat-square)](https://chrome.google.com/webstore/detail/shortskiller/nbeplloghhjejmopgodjpmopdcbgmdoi)
-2. Go to [Youtube](https://www.youtube.com)
-3. _Shorts_ will no longer appear on the web
+1. Download extension _[here](#-download-extension)_.
+2. Go to **_[Youtube](https://www.youtube.com)_**.
+3. **_Shorts_** will no longer appear on the web.
 
-Stop wasting time watching content you don't like! Enjoy a more productive YouTube experience.
+![DEMO](docs/demo/yt-home.png)
 
-## 🧩 Download extension
-- [![Firefox Extension](https://img.shields.io/badge/Firefox-grey?style=flat-square)](https://addons.mozilla.org/es/firefox/addon/shortskiller/)
-- [![Chrome Extension](https://img.shields.io/badge/Chrome-grey?style=flat-square)](https://chrome.google.com/webstore/detail/shortskiller/khoggafmiibmeihpkpbkllkkdfhmokoj)
+> Stop wasting time watching content you don't like! Enjoy a more productive _YouTube_ experience.
 
 ## 👨‍💻 Development
 
@@ -79,7 +83,7 @@ Help us to develop more interesting things.
 
 This software is licensed with GPLv3 (GNU GENERAL PUBLIC LICENSE Version 3).
 
-[![Read more](https://img.shields.io/badge/Read-more-grey?style=flat-square)](https://github.com/pigeonposse/shortskiller/blob/main/LICENSE)
+[![Read more](https://img.shields.io/badge/Read-more-grey?style=flat-square)](/LICENSE)
 
 ## 🐦 About us
 
