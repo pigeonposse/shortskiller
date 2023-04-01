@@ -1,15 +1,15 @@
 ###############################################################################
-# FOR PIGEONPOSSE WEB/S
+# FOR PIGEONPOSSE USAGE
 ###############################################################################
 
 web:
   
-  - id: umac
+  - id: shortskiller
     type: browser-extension
     version: {{package.version}}
     description: {{package.description}}
-    logo: "https://github.com/pigeonposse/shortkiller/blob/main/docs/logo.png"
-    banner: "https://github.com/pigeonposse/shortkiller/blob/main/docs/banner.png"
+    logo: "https://raw.githubusercontent.com/pigeonposse/shortskiller/main/docs/logo.png"
+    banner: "https://raw.githubusercontent.com/pigeonposse/shortskiller/main/docs/banner.png"
 
 
 ###############################################################################
