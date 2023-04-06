@@ -9,7 +9,7 @@ web:
     type: browser-extension
     version: "{{package.version}}"
     description: "{{package.description}}"
-    homepage: https://chrome.google.com/webstore/detail/stylegpt/khoggafmiibmeihpkpbkllkkdfhmokoj
+    homepage: "{{package.homepage}}"
     repo: https://github.com/pigeonposse/shortskiller
     logo: "https://raw.githubusercontent.com/pigeonposse/shortskiller/main/docs/logo.png"
     banner: "https://raw.githubusercontent.com/pigeonposse/shortskiller/main/docs/banner.png"
