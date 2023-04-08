@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "shortsKiller",
-	"description": "📺🧩 shortsKiller remove Shorts from YouTube. 🐦🌈",
+	"description": "📺🧩 shortsKiller is a browser extension that removes Shorts from YouTube 🐦🌈",
 	"version": "1.0.1",
 	"type": "module",
 	"engines": {
