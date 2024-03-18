@@ -13,7 +13,7 @@ on:
   push:
     tags:
       - '*'
-
+  workflow_dispatch:
 
 ###############################################################################
 # JOBS
@@ -24,7 +24,7 @@ jobs:
   build:
 
     name: Publish web extensions (Chrome & firefox) and release in github
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     permissions:
       contents: write
 
@@ -115,7 +115,7 @@ jobs:
           # https://addons.mozilla.org/en-US/developers/addon/api/key/
           api-key: ${{ secrets.FIREFOX_API_KEY }}
           api-secret: ${{ secrets.FIREFOX_API_SECRET }}
-
+        continue-on-error: true
 
       #########################################################################
       # GITHUB RELEASE
@@ -124,7 +124,7 @@ jobs:
       - name: Create Github release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/comp/*.zip"
+          artifacts: "build/extensions/*"
           body: |
             🧩 View changelog at: https://github.com/pigeonposse/shortskiller/blob/main/CHANGELOG.md
             📜 View license: https://github.com/pigeonposse/shortskiller/blob/main/LICENSE

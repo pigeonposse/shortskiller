@@ -1,8 +1,8 @@
 {
 	"private": true,
-	"name": "shortsKiller",
+	"name": "shortskiller",
 	"description": "📺🧩 shortsKiller is a browser extension that removes Shorts from YouTube 🐦🌈",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"type": "module",
 	"engines": {
 		"node": "^12.17.0 || ^14.13 || >=16.0.0",
@@ -99,17 +99,22 @@
 			"name": "Alejo",
 			"email": "alejo@pigeonposse.com",
 			"url": "https://pigeonposse.com"
+		},
+		{
+			"name": "Irfaelo",
+			"email": "irfaelo@pigeonposse.com",
+			"url": "https://pigeonposse.com"
 		}
 	],
-	"license": {
-		"type": "GPL-3.0",
-		"url": "https://github.com/pigeonposse/shortsKiller/LICENSE"
-	},
+	"license": "GPL-3.0",
 	"bugs": {
 		"url": "https://github.com/pigeonposse/shortsKiller/issues"
 	},
 	"funding": {
 		"type": "individual",
 		"url": "https://pigeonposse.com/?popup=donate"
+	},
+	"dependencies": {
+		"@bepp/bepp": "^1.2.3"
 	}
 }

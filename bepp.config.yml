@@ -1,0 +1,54 @@
+shared:
+  id: shortkiller
+  input:
+    chromium: "./dist/chrome"
+    chromium-mv2: "./dist/firefox"
+    firefox-mv2: "./dist/firefox"
+
+build:
+  - type: chrome
+  - type: chrome-mv2
+  - type: chromium
+  - type: chromium-mv2
+  - type: firefox-mv2
+  - type: edge
+  - type: edge-mv2
+  - type: opera-gx
+  - type: opera
+  - type: safari
+  - type: brave
+  - type: yandex
+  - type: yandex-mv2
+  - type: custom
+    browserName: vivaldi
+    input: "./dist/chrome"
+    # For releases in zip
+  - type: chrome
+    compress: zip
+  - type: chrome-mv2
+    compress: zip
+  - type: chromium
+    compress: zip
+  - type: chromium-mv2
+    compress: zip
+  - type: firefox-mv2
+    filename: "{{id}}-firefox" ## Remove mv2 in filename
+    compress: zip
+  - type: edge
+    compress: zip
+  - type: edge-mv2
+    compress: zip
+  - type: yandex
+    compress: zip
+  - type: opera-gx
+    compress: zip
+  - type: opera
+    compress: zip
+  - type: brave
+    compress: zip
+  - type: yandex-mv2
+    compress: zip
+  - type: custom
+    browserName: vivaldi
+    input: "./dist/chrome"
+    compress: zip
