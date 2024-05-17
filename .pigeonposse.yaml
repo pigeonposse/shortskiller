@@ -6,7 +6,17 @@ web:
   
   - id: shortskiller
     name: Shorts Killer
-    type: browser-extension
+    type: 
+      - browser-extension
+      - chrome-extension
+      - firefox-extension
+      - edge-extension
+      - safari-extension
+      - chromium-extension
+      - brave-extension
+      - opera-extension
+      - operagx-extension
+      - yandex-extension
     version: "{{package.version}}"
     description: "{{package.description}}"
     homepage: "{{package.homepage}}"
