@@ -146,5 +146,113 @@
 	"funding": {
 		"type": "individual",
 		"url": "https://pigeonposse.com/?popup=donate"
+	},
+	"extra": {
+		"releases": {
+			"chrome": {
+				"url": "https://chromewebstore.google.com/detail/shortskiller/nbeplloghhjejmopgodjpmopdcbgmdoi",
+				"id": "chrome",
+				"name": "Chrome extension",
+				"logo": "googlechrome",
+				"store": true,
+				"storeId": "nbeplloghhjejmopgodjpmopdcbgmdoi",
+				"type": "extension"
+			},
+			"chromeMv2": {
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-chrome-mv2.zip",
+				"id": "chrome-mv2",
+				"name": "Chrome (Manifest 2) Extension",
+				"logo": "googlechrome",
+				"type": "extension"
+			},
+			"edge": {
+				"id": "edge",
+				"name": "Edge extension",
+				"logo": "microsoftedge",
+				"url": "https://microsoftedge.microsoft.com/addons/detail/jikbnfhgkmnijjfahnkononfhmemhfej",
+				"store": true,
+				"storeId": "jikbnfhgkmnijjfahnkononfhmemhfej",
+				"type": "extension"
+			},
+			"edgeMv2": {
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-edge-mv2.zip",
+				"id": "edge-mv2",
+				"name": "Edge (Manifest 2) Extension",
+				"logo": "microsoftedge",
+				"type": "extension"
+			},
+			"firefox": {
+				"url": "https://addons.mozilla.org/es/firefox/addon/shortskiller/",
+				"id": "firefox-mv2",
+				"name": "Firefox extension",
+				"logo": "firefoxbrowser",
+				"store": true,
+				"storeId": "{5620af48-521a-4fbd-a153-26f3a7dfb613}",
+				"type": "extension"
+			},
+			"safari": {
+				"id": "safari",
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-safari.tar.gz",
+				"name": "Safari Extension",
+				"logo": "safari",
+				"type": "extension"
+			},
+			"brave": {
+				"id": "brave",
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-brave.zip",
+				"name": "Brave Extension",
+				"logo": "brave",
+				"type": "extension"
+			},
+			"opera": {
+				"id": "opera",
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-opera.zip",
+				"name": "Opera Extension",
+				"logo": "opera",
+				"type": "extension"
+			},
+			"operaGX": {
+				"id": "opera-gx",
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-opera-gx.zip",
+				"name": "Opera GX Extension",
+				"logo": "operagx",
+				"type": "extension"
+			},
+			"vivaldi": {
+				"id": "vivaldi",
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-vivaldi.zip",
+				"name": "Vivaldi Extension",
+				"logo": "vivaldi",
+				"type": "extension"
+			},
+			"yandex": {
+				"id": "yandex",
+				"name": "Yandex extension",
+				"logo": "googlechrome",
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-yandex.zip",
+				"type": "extension"
+			},
+			"yandexMv2": {
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-yandex-mv2.zip",
+				"id": "yandex-mv2",
+				"name": "Yandex (Manifest 2) Extension",
+				"logo": "googlechrome",
+				"type": "extension"
+			},
+			"chromium": {
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-chromium.zip",
+				"id": "chromium",
+				"name": "Chromium Extension",
+				"logo": "googlechrome",
+				"type": "extension"
+			},
+			"chromiumMv2": {
+				"url": "https://github.com/pigeonposse/shortskiller/releases/latest/download/shortskiller-chromium-mv2.zip",
+				"id": "chromium-mv2",
+				"name": "Chromium (Manifest 2) Extension",
+				"logo": "googlechrome",
+				"type": "extension"
+			}
+		}
 	}
 }

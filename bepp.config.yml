@@ -1,5 +1,6 @@
 shared:
   id: shortkiller
+  filename: "{{id}}-{{browser}}"
   input:
     chromium: "./dist/chrome"
     chromium-mv2: "./dist/firefox"

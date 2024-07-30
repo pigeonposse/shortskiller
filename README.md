@@ -43,9 +43,9 @@ DEVELOPED BY PIGEONPOSSE
 
 [![HEADER](docs/banner.png)](https://youtu.be/UN1hu4e-VmM)
 
-Our ***ShortsKiller*** extension will allow you to completely remove the _Shorts_ section from YouTube, so you can **focus on the content that really matters to you**.
+Our _**ShortsKiller**_ extension will allow you to completely remove the _Shorts_ section from YouTube, so you can **focus on the content that really matters to you**.
 
-With ***ShortsKiller*** you won't have to worry about watching videos that don't interest you, or wasting time browsing content that doesn't appeal to you. 
+With _**ShortsKiller**_ you won't have to worry about watching videos that don't interest you, or wasting time browsing content that doesn't appeal to you.
 
 > Easy to install and easy to use
 
@@ -71,13 +71,11 @@ You can contribute via **_Github_**.
 [![Issues](https://img.shields.io/badge/Issues-grey?style=flat-square)](https://github.com/pigeonposse/shortskiller/issues)
 [![Pull requests](https://img.shields.io/badge/Pulls-grey?style=flat-square)](https://github.com/pigeonposse/shortskiller/pulls)
 
-
 ## ☕ Donate
 
 Help us to develop more interesting things.
 
 [![Donate](https://img.shields.io/badge/Donate-grey?style=flat-square)](https://pigeonposse.com/?popup=donate)
-
 
 ## 📜 License
 
@@ -97,8 +95,5 @@ _PigeonPosse_ is a ✨ **code development collective** ✨ focused on creating p
 | ---------------------------------------------------------------------------------- | ----------- | ------------ | ---------------------------------------------- |
 | <img src="https://github.com/irfaelo.png?size=72" style="border-radius:100%"/> | irfaelo | Idea & Development      | [@irfaelo](https://github.com/irfaelo) |
 | <img src="https://github.com/AngelEspejo.png?size=72" style="border-radius:100%"/> | AngelEspejo | Development      | [@AngelEspejo](https://github.com/AngelEspejo) |
-| <img src="https://github.com/AlejoMalia.png?size=72" style="border-radius:100%"/> 	 | Alejo      | Design      | [@AlejoMalia](https://github.com/AlejoMalia) |
-| <img src="https://github.com/PigeonPosse.png?size=72" style="border-radius:100%"/> | PigeonPosse | Collective	  | [@PigeonPosse](https://github.com/PigeonPosse) |
-
-
-<br>
+| <img src="https://github.com/AlejoMalia.png?size=72" style="border-radius:100%"/>   | Alejo      | Design      | [@AlejoMalia](https://github.com/AlejoMalia) |
+| <img src="https://github.com/PigeonPosse.png?size=72" style="border-radius:100%"/> | PigeonPosse | Collective   | [@PigeonPosse](https://github.com/PigeonPosse) |

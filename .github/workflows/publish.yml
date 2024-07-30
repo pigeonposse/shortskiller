@@ -28,7 +28,7 @@ jobs:
 
   build:
 
-    name: Publish web extensions (Chrome & firefox) and release in github
+    name: Publish web extensions and release in Github
     # for the Safari build. If set to 'macos-13-xlarge' or 'macos-latest' safari build it will not be compatible with macos Intel processor
     # @see https://github.com/actions/runner-images?tab=readme-ov-file#available-images
     runs-on: macos-13
@@ -41,105 +41,111 @@ jobs:
 
     steps:
 
-      #########################################################################
-      # INIT & BUILD PKG
-      #########################################################################
-      - name: checks-out repository
-        uses: actions/checkout@v3
-
-
-      #########################################################################
-      # IF IS IN MAIN BRANCH
+     #########################################################################
+      # INIT
       #########################################################################
 
-      # - name: Exit if not on MAIN branch
-      #   if: endsWith(github.ref, 'main') == false
-      #   run: exit -1
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v4
+
+      - name: ⬇️🟢 Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: ⬇️🥡 Install pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: ⬇️📦 Install dependencies
+        run: |
+          pnpm install --no-frozen-lockfile
 
 
       #########################################################################
       # BUILD PKG
       #########################################################################
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        id: pnpm-install
-
-      - name: Install pkg dependencies
-        run: |
-          pnpm install
-          pnpm build
+      - name: 🏗 Build
+        run: pnpm build
 
 
-      #########################################################################
+     #########################################################################
       # GET PKG INFO
       #########################################################################
 
-      - name: Get package info
-        id: package
-        uses: codex-team/action-nodejs-package-info@v1.1
-
-
-      # #########################################################################
-      # # CHROME
-      # #########################################################################
-
-      # - name: Upload CHROME extension
-      #   uses: Klemensas/chrome-extension-upload-action@v1.3
-      #   with:
-      #     refresh-token: '${{ secrets.CHOME_EXTENSION_REFRESH_TOKEN }}'
-      #     client-id: '${{ secrets.CHOME_EXTENSION_CLIENT_ID }}'
-      #     client-secret: '${{ secrets.CHOME_EXTENSION_CLIENT_SECRET }}'
-      #     file-name: '.dist/comp/chrome-${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}.zip'
-      #     app-id: 'nnkleafalbcmeamobndfmcjhphipnnaj'
-      #     publish: true
-          
-      #   # uses: mnao305/chrome-extension-upload@v4.0.1
-      #   # with:
-      #   #   file-path: dist/comp/chrome-${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}.zip
-      #   #   # id of the extension in chrome
-      #   #   extension-id: nnkleafalbcmeamobndfmcjhphipnnaj
-      #   #   # instructions to get secrets: 
-      #   #   # https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md
-      #   #   client-id: ${{ secrets.CHOME_EXTENSION_CLIENT_ID }}
-      #   #   client-secret: ${{ secrets.CHOME_EXTENSION_CLIENT_SECRET }}
-      #   #   refresh-token: ${{ secrets.CHOME_EXTENSION_REFRESH_TOKEN }} 
-
-
-      # #########################################################################
-      # # FIREFOX
-      # #########################################################################
-
-      - name: Upload FIREFOX extension
-        uses: trmcnvn/firefox-addon@v1
-        with:
-          # uuid is only necessary when updating an existing addon,
-          # omitting it will create a new addon
-          uuid: '{5620af48-521a-4fbd-a153-26f3a7dfb613}'
-          xpi: dist/comp/firefox-${{ steps.package.outputs.name }}-${{ steps.package.outputs.version }}.zip
-          manifest: dist/firefox/manifest.json
-          # get keys in:
-          # https://addons.mozilla.org/en-US/developers/addon/api/key/
-          api-key: ${{ secrets.FIREFOX_API_KEY }}
-          api-secret: ${{ secrets.FIREFOX_API_SECRET }}
-        continue-on-error: true
+      - name: 📦📄 Get package.json data
+        id: pkg
+        run: |
+          echo "description=$(jq -r '.description' ./package.json)" >> $GITHUB_OUTPUT
+          echo "name=$(jq -r '.name' ./package.json)" >> $GITHUB_OUTPUT
+          echo "version=$(jq -r '.version' ./package.json)" >> $GITHUB_OUTPUT 
+          echo "firefox_store_id=$(jq -r '.extra.releases.firefox.storeId' ./package.json)" >> $GITHUB_OUTPUT
+          echo "chrome_store_id=$(jq -r '.extra.releases.chrome.storeId' ./package.json)" >> $GITHUB_OUTPUT
+          echo "edge_store_id=$(jq -r '.extra.releases.edge.storeId' ./package.json)" >> $GITHUB_OUTPUT
 
       #########################################################################
       # GITHUB RELEASE
       #########################################################################
 
-      - name: Create Github release
+      - name: 🧩🗂️ Create Github release
         uses: ncipollo/release-action@v1
         with:
-          tag: "${{  github.event.inputs.version }}"
-          name: 'Shortskiller v${{ github.event.inputs.version }}'
+          tag: "${{ steps.pkg.outputs.version }}"
+          name: '${{ steps.pkg.outputs.version }}'
           draft: false
           prerelease: false
           allowUpdates: true
           artifacts: "dist/exts/*"
           body: |
-            🧩 View changelog at: https://github.com/pigeonposse/shortskiller/blob/main/CHANGELOG.md
-            📜 View license: https://github.com/pigeonposse/shortskiller/blob/main/LICENSE
+            <p><b> ${{ steps.pkg.outputs.name }} v${{ steps.pkg.outputs.version }}</b></p>
+            <p>${{ steps.pkg.outputs.description }}</p>
+
+            🧩 [CHANGELOG]( https://github.com/pigeonposse/${{ steps.pkg.outputs.name }}/blob/main/CHANGELOG.md)
+            📜 [LICENSE](https://github.com/pigeonposse/${{ steps.pkg.outputs.name }}/blob/main/LICENSE)
+            🔏 [PRIVACY](https://github.com/pigeonposse/${{ steps.pkg.outputs.name }}/blob/main/POLICY.md)
+
+
+     #########################################################################
+      #  PUBLISH IN FIREFOX WEB STORE
+      #########################################################################
+      
+      - name: 🧩🦊 Upload FIREFOX extension
+        uses: trmcnvn/firefox-addon@v1
+        with:
+           uuid: ${{ steps.pkg.outputs.firefox_store_id }}
+           xpi: dist/comp/firefox-${{ steps.pkg.outputs.name }}-${{ steps.pkg.outputs.version }}.zip
+           manifest: dist/firefox/manifest.json
+           api-key: ${{ secrets.FIREFOX_API_KEY }}
+           api-secret: ${{ secrets.FIREFOX_API_SECRET }}
+        continue-on-error: true
+
+      #########################################################################
+      #  PUBLISH IN CHROME WEB STORE
+      #########################################################################
+
+      - name: 🧩 Upload CHROME extension
+        uses: wdzeng/chrome-extension@v1.2.4
+        with:
+          refresh-token: '${{ secrets.CHOME_EXTENSION_REFRESH_TOKEN }}'
+          client-id: '${{ secrets.CHOME_EXTENSION_CLIENT_ID }}'
+          client-secret: '${{ secrets.CHOME_EXTENSION_CLIENT_SECRET }}'
+          zip-path: dist/exts/${{ steps.pkg.outputs.name }}-chrome.zip
+          extension-id: '${{steps.pkg.outputs.chrome_store_id}}'
+        continue-on-error: true
+
+      #########################################################################
+      # PUBLISH IN EDGE WEB STORE
+      #########################################################################
+
+      - name: 🧩 Upload EDGE extension
+        uses: wdzeng/edge-addon@v1.2.3
+        with:
+          product-id: ${{ steps.pkg.outputs.edge_store_id }}
+          client-id: ${{ secrets.EDGE_CLIENT_ID }}
+          client-secret: ${{ secrets.EDGE_CLIENT_SECRET }}
+          access-token-url: ${{ secrets.EDGE_ACCESS_TOKEN_URL }}
+          zip-path: dist/exts/${{ steps.pkg.outputs.name }}-edge.zip
+        continue-on-error: true
 
 
 ############################################################################### 
