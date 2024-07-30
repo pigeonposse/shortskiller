@@ -136,7 +136,7 @@ jobs:
           draft: false
           prerelease: false
           allowUpdates: true
-          artifacts: "build/extensions/*"
+          artifacts: "dist/exts/*"
           body: |
             🧩 View changelog at: https://github.com/pigeonposse/shortskiller/blob/main/CHANGELOG.md
             📜 View license: https://github.com/pigeonposse/shortskiller/blob/main/LICENSE
