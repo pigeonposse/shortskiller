@@ -1,5 +1,5 @@
 /**
- * Cz-customizable config..
+ * Cz-customizable config.
  *
  * @description Cz-customizable config.
  * @see https://github.com/leoforfree/cz-customizable
