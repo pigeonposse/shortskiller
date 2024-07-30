@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "gruntfuggly.todo-tree",
+		"davidanson.vscode-markdownlint",
+		"gruntfuggly.todo-tree",
+        "shd101wyy.markdown-preview-enhanced",
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.npm-intellisense",
+        "jacano.vscode-pnpm",
+		"nhoizey.gremlins",
+		"jacano.vscode-pnpm",
+        "redhat.vscode-yaml",
+		"editorconfig.editorconfig",
+		"wix.vscode-import-cost",
+    ]
+}

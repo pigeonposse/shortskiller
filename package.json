@@ -5,14 +5,14 @@
 	"version": "1.0.2",
 	"type": "module",
 	"engines": {
-		"node": "^12.17.0 || ^14.13 || >=16.0.0",
+		"node": "12.17.0 || 14.13 || >=16.0.0",
 		"pnpm": ">=3"
 	},
-	"packageManager": "pnpm@7.26.0",
+	"packageManager": "pnpm@9.6.0",
 	"scripts": {
 		"scripts": "pnpm pes",
 		"start": "echo 'Dev: pnpm pes dev \nBuild: pnpm pes build'",
-		"release": "pnpm release-it",
+		"release": "git add . && pnpm exec cz && pnpm release-it",
 		"rm-all": "rimraf dist",
 		"rm:c": "rimraf dist/chrome",
 		"rm:f": "rimraf dist/firefox",
@@ -33,41 +33,65 @@
 		"build:c:comp": "web-ext build --source-dir=./dist/chrome --artifacts-dir=dist/comp --filename=chrome-{name}-{version}.zip",
 		"build:f:man": "parcel build src/man/firefox/manifest.json --dist-dir dist/firefox --no-content-hash --no-source-maps --no-cache --detailed-report 0",
 		"build:f:comp": "web-ext build --source-dir=./dist/firefox --artifacts-dir=dist/comp --filename=firefox-{name}-{version}.zip",
-		"coverage": "browserslist --coverage"
+		"gh-update": "node .dev/gh-update.cjs",
+		"coverage": "browserslist --coverage",
+		"prepare": "husky .dev/husky"
 	},
 	"keywords": [
-		"javascript",
 		"chrome-extension",
 		"firefox-extension",
+		"safari-extension",
+		"opera-extension",
+		"opera-gx-extension",
+		"brave-extension",
+		"yandex-extension",
+		"edge-extension",
+		"chromium-extension",
 		"browser-extension",
 		"extension",
+		"safari",
+		"chrome",
+		"firefox",
 		"youtube",
 		"shorts",
-		"shorts-killer",
+		"youtube-shorts",
 		"yt",
 		"web",
-		"npm"
+		"js",
+		"javascript"
 	],
 	"devDependencies": {
-		"@parcel/config-webextension": "^2.8.3",
-		"@pigeon-posse/eslint-config": "^1.0.1",
-		"@pigeon-posse/pkg-extended-scripts": "^0.3.0",
-		"@release-it/bumper": "^4.0.2",
-		"auto-changelog": "^2.4.0",
-		"browserslist": "^4.21.5",
-		"eslint": "^8.36.0",
-		"eslint-plugin-align-assignments": "^1.1.2",
-		"eslint-plugin-align-import": "^1.0.0",
-		"eslint-plugin-html": "^7.1.0",
-		"eslint-plugin-import": "^2.27.5",
-		"eslint-plugin-jsdoc": "^39.9.1",
-		"eslint-plugin-json": "^3.1.0",
-		"eslint-plugin-promise": "^6.1.1",
-		"npm-run-all": "^4.1.5",
-		"parcel": "^2.8.3",
-		"release-it": "^15.8.0",
-		"rimraf": "^4.4.0",
-		"web-ext": "^7.5.0"
+		"@bepp/bepp": "1.2.3",
+		"@parcel/config-webextension": "2.12.0",
+		"@pigeon-posse/eslint-config": "1.0.1",
+		"@pigeon-posse/pkg-extended-scripts": "0.3.0",
+		"@release-it/bumper": "6.0.1",
+		"@typescript-eslint/eslint-plugin": "7.1.1",
+		"@typescript-eslint/parser": "7.1.1",
+		"auto-changelog": "2.4.0",
+		"commitizen": "4.3.0",
+		"commitlint-config-gitmoji": "2.3.1",
+		"cz-customizable": "7.2.1",
+		"cz-emoji": "1.3.2-canary.2",
+		"git-cz": "4.9.0",
+		"husky": "9.1.4",
+		"lint-staged": "15.2.7",
+		"browserslist": "4.23.2",
+		"eslint": "8.57.0",		
+		"eslint-plugin-align-assignments": "1.1.2",
+		"eslint-plugin-align-import": "1.0.0",
+		"eslint-plugin-html": "7.1.0",
+		"eslint-plugin-import": "2.29.1",
+		"eslint-plugin-jsdoc": "46.10.1",
+		"eslint-plugin-json": "3.1.0",
+		"eslint-plugin-jsonc": "2.13.0",
+		"eslint-plugin-promise": "6.1.1",
+		"eslint-plugin-yaml": "0.5.0",
+		"npm-run-all": "4.1.5",
+		"parcel": "2.12.0",
+		"release-it": "17.6.0",
+		"rimraf": "6.0.1",
+		"web-ext": "8.2.0"
 	},
 	"browserslist": [
 		"last 1 Chrome version",
@@ -80,6 +104,29 @@
 				"https://www.youtube.com/"
 			]
 		}
+	},
+	"commitlint": {
+		"extends": [
+			"gitmoji"
+		],
+		"rules": {
+			"header-max-length": [
+				0,
+				"always",
+				100
+			]
+		}
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-customizable"
+		},
+		"cz-customizable": {
+			"config": ".dev/cz-config.cjs"
+		}
+	},
+	"lint-staged": {
+		"*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}": "eslint"
 	},
 	"@parcel/bundler-default": {
 		"minBundles": 10000000
@@ -113,8 +160,5 @@
 	"funding": {
 		"type": "individual",
 		"url": "https://pigeonposse.com/?popup=donate"
-	},
-	"dependencies": {
-		"@bepp/bepp": "^1.2.3"
 	}
 }

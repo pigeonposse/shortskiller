@@ -4,6 +4,7 @@ shared:
     chromium: "./dist/chrome"
     chromium-mv2: "./dist/firefox"
     firefox-mv2: "./dist/firefox"
+  output: './dist/exts'
 
 build:
   - type: chrome

@@ -1,137 +1,378 @@
 {
-	"plugins": [
-        "json"
-    ],
+	"root": true,
 	"env": {
-	    "jest": true
+		"node": true,
+		"browser": true,
+		"es2022": true
 	},
-	"parserOptions" : {
-		"ecmaVersion": 13,
+	"parserOptions": {
+		"ecmaVersion": 2023,
 		"sourceType": "module",
 		"allowImportExportEverywhere": true
 	},
-	"extends" : [
-		"@pigeon-posse/eslint-config",
+	"plugins": [
+		"html",
+		"align-import",
+		"align-assignments",
+		"promise",
+		"jsonc",
+		"yaml"
+	],
+	"extends": [
+		"eslint:recommended",
+		"plugin:promise/recommended",
 		"plugin:jsdoc/recommended",
-		"plugin:json/recommended",
 		"plugin:import/recommended"
 	],
-	"rules" : {
-		"json/*": ["error", {"allowComments": false}],
-		"jsdoc/require-jsdoc" : [
+	"rules": {		
+		// "max-len": [
+		// 	"error", 
+		// 	{ 
+		// 		"code": 80,
+		// 		"ignoreComments": true,
+		// 		"ignoreStrings": true,
+		// 		"ignoreTemplateLiterals": true,
+		// 		"ignoreRegExpLiterals": true
+		// 	}
+		// ],
+		"align-import/align-import": "error",
+		"align-assignments/align-assignments": [
 			"error",
 			{
-				"require" : {
+				"requiresOnly": false
+			}
+		],
+		"camelcase": "warn",
+		"key-spacing": [
+			"error",
+			{
+				"multiLine": {
+					"beforeColon": true,
+					"afterColon": true
+				},
+				"align": {
+					"beforeColon": true,
+					"afterColon": true,
+					"on": "colon"
 				}
 			}
 		],
-		"jsdoc/require-description" : [
+		"switch-colon-spacing": [
 			"error",
 			{
-				"descriptionStyle": "body"
+				"after": true,
+				"before": true
 			}
 		],
-		"jsdoc/require-hyphen-before-param-description": [
+		// "switch-colon-spacing": "error",
+		"comma-dangle": [
 			"error",
-			"always",
+			"always-multiline"
+		],
+		"no-multiple-empty-lines": [
+			"error",
 			{
-				"tags" : {
-					"returns" : "always"
+				"max": 1,
+				"maxEOF": 1,
+				"maxBOF": 1
+			}
+		],
+		"padded-blocks": [
+			"error",
+			"always"
+		],
+		"one-var": [
+			"error",
+			{
+				"var": "always",
+				"let": "always",
+				"const": "never"
+			}
+		],
+		"vars-on-top": "warn",
+		"space-in-parens": [
+			"error",
+			"always"
+		],
+		"object-curly-newline": [
+			"error", 
+			{ 
+				"ObjectPattern": {
+					"multiline": true 
+				},
+				"ObjectExpression": {
+					"minProperties": 1 
+				},
+				"ImportDeclaration": {
+					"multiline": false, "minProperties": 2 
 				}
 			}
 		],
-		"jsdoc/require-file-overview": [
+		"object-curly-spacing": [
+			"error",
+			"always"
+		],
+		"array-bracket-newline": [
 			"error",
 			{
-				"tags": {
-					"description":{
-						"mustExist":true,
-						"initialCommentsOnly":true,
-						"preventDuplicates":false
-					}
-				}
+				"minItems": 1 
 			}
 		],
-		"jsdoc/check-line-alignment": [
+		"array-bracket-spacing": [
 			"error",
-			"always",
-			{
-				"tags": [
-					"version",
-					"description",
-					"since",
-					"param",
-					"returns"
-				]
-			}
+			"always"
 		],
-  		"jsdoc/require-description-complete-sentence": [
-  			"error",
-  			{
-  				"tags" : [
-  					"param",
-  					"returns",
-  					"description"
-  				]
-  			}
-  		],
-  		"jsdoc/tag-lines": [
-  			"error",
-  			"never",
-  			{
-  				"noEndLines" : true,
-  				"tags": {
-  					"description":{
-  						"count" : 1,
-  						"lines": "always"
-  					},
-  					"version":{
-  						"count" : 1,
-  						"lines": "always"
-  					},
-  					"author":{
-  						"count" : 1,
-  						"lines": "always"
-  					}
-  				}
-  			}
-  		],
-		"align-import/trim-import" : "error",
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"semi": [
+			"error",
+			"never"
+		],
+		"import/no-unresolved": "off",
+		"arrow-parens": [
+			"error",
+			"as-needed"
+		],
+		"align-import/trim-import": "error",
 		"default-case-last": "error",
-		"indent": ["error", "tab", { "SwitchCase": 1 }],
-		"switch-colon-spacing": "error",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1 
+			}
+		],
 		"default-case": "error",
-		"semi": ["error", "never"],
-		"eol-last": ["error", "always"],
+		"eol-last": [
+			"error",
+			"always"
+		],
 		"no-prototype-builtins": "off",
+		"no-inline-comments": "off",
 		"space-infix-ops": "error",
 		"no-multi-spaces": [
-			"error", {
+			"error",
+			{
 				"exceptions": {
 					"ImportDeclaration": true,
 					"VariableDeclarator": true,
-					"AssignmentExpression" : true
+					"AssignmentExpression": true
 				}
 			}
 		]
 	},
-	"ignorePatterns": [ "dist/*"],
-    "overrides": [
-        {
-            "files": ["*.json"],
-            "rules": {
-                "jsdoc/require-file-overview": [
+	"ignorePatterns": [ 
+		"!.dev",
+		"!.utils",
+		"dist/*", 
+		"**/dist/*",
+		"**/vendor/*",
+		"**/static/*",
+		"**/public/*",
+		"**/build/*",
+		"**/.svelte-kit/*",
+		"**/*.timestamp-*",
+		"**/*.d.ts",
+		"packages/exts/*.html"
+	],
+	"overrides": [
+		{
+			"files": [
+				"**/*.cjs"
+			], 
+			"env": {
+				"node": true 
+			}
+		},
+		/**
+		 * EXCLUSIVE FOR JS & TS FILES.
+		 */
+		{
+			"files": [
+				"**/*.js",
+				"**/*.mjs",
+				"**/*.cjs",
+				"**/*.jxs",
+				"**/*.ts",
+				"**/*.mts",
+				"**/*.cts",
+				"**/*.txs"
+			],
+			"rules": {
+				"jsdoc/require-file-overview": [
 					"error",
 					{
-						"tags" : {
+						"tags": {
+							"description": {
+								"mustExist": true,
+								"initialCommentsOnly": true,
+								"preventDuplicates": false
+							}
 						}
 					}
+				],
+				"jsdoc/require-jsdoc": [
+					"error",
+					{
+						"require": {}
+					}
+				],
+				"jsdoc/require-description": [
+					"error",
+					{
+						"descriptionStyle": "body"
+					}
+				],
+				"jsdoc/require-hyphen-before-param-description": [
+					"error",
+					"always",
+					{
+						"tags": {
+							"returns": "always"
+						}
+					}
+				],
+				"jsdoc/check-line-alignment": [
+					"error",
+					"always",
+					{
+						"tags": [
+							"version",
+							"description",
+							"since",
+							"param",
+							"returns"
+						]
+					}
+				],
+				"jsdoc/require-description-complete-sentence": [
+					"error",
+					{
+						"tags": [
+							"param",
+							"returns",
+							"description"
+						]
+					}
+				],
+				"jsdoc/tag-lines": [
+					"error",
+					"never",
+					{
+						"startLines": 1,
+						"endLines": 0,
+						"tags": {
+							"version": {
+								"count": 1,
+								"lines": "always"
+							},
+							"author": {
+								"count": 1,
+								"lines": "always"
+							}
+						}
+					}
+				],
+				"quotes": [
+					"error",
+					"single"
 				]
-            }
-        },
-        {
-        	"files": ["./src/index.js", "./src/getFile.js"],
-        	"parser": "@babel/eslint-parser"
-        }
-    ]
+			}
+		},
+		/**
+		 * TYPESCRIPT config.
+		 */
+		{
+			"files": [
+				"**/*.ts"
+			],
+			"plugins": [
+				"@typescript-eslint"
+			],
+			"extends": [
+				"eslint:recommended",
+				"plugin:@typescript-eslint/eslint-recommended",
+				"plugin:@typescript-eslint/recommended"
+			],
+			"parser": "@typescript-eslint/parser",
+			"rules": {
+				"@typescript-eslint/consistent-type-imports": [
+					"error",
+					{
+						"prefer": "type-imports",
+						"disallowTypeAnnotations": false
+					}
+				]
+			}
+		},
+		/**
+		 * YAML config.
+		 * @see https://www.npmjs.com/package/eslint-plugin-yaml
+		 */
+		{
+			"files": [
+				"**/*.yaml",
+				"**/*.yml"
+			],
+			"extends": [
+				"plugin:yaml/recommended"
+			]
+		},
+		/**
+		 * JSON config.
+		 * @see https://ota-meshi.github.io/eslint-plugin-jsonc/rules/
+		 */
+		{
+			"files": [
+				"**/*.json",
+				"**/*.json5",
+				"**/*.jsonc"
+			],
+			"parser": "jsonc-eslint-parser",
+			"rules": {
+				"strict": "error",
+				"jsonc/auto": "off",
+				"jsonc/no-comments": "off",
+				"jsonc/indent": [
+					"error",
+					"tab"
+				],
+				"jsonc/comma-style": [
+					"error",
+					"last"
+				],
+				"jsonc/array-bracket-newline": [
+					"error",
+					"always"
+				],
+				"jsonc/comma-dangle": [
+					"error",
+					"never"
+				],
+				"jsonc/key-spacing": [
+					"error",
+					{
+						"beforeColon": false,
+						"afterColon": true,
+						"mode": "strict"
+					}
+				],
+				"jsonc/object-curly-newline": [
+					"error", {
+						"multiline": true, 
+						"minProperties": 1 
+					}
+				],
+				"jsonc/quotes": [
+					"error",
+					"double",
+					{
+						"avoidEscape": false
+					}
+				]
+			}   
+		}
+	]
 }
