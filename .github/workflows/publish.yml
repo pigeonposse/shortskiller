@@ -45,16 +45,17 @@ jobs:
       # INIT
       #########################################################################
 
-      - name: ⬇️ Checkout
+      - name: ⬇️🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.12.1
+      - name: ⬇️🛎 Checkout
         uses: actions/checkout@v4
-
+      - name: ⬇️🥡 Install pnpm
+        uses: pnpm/action-setup@v4
       - name: ⬇️🟢 Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: ⬇️🥡 Install pnpm
-        uses: pnpm/action-setup@v3
+          cache: 'pnpm'
 
       - name: ⬇️📦 Install dependencies
         run: |
@@ -69,7 +70,7 @@ jobs:
         run: pnpm build
 
       - name: 🏗 Rebuild bepp
-        uses: pigeonposse/bepp@1.3.8
+        uses: pigeonposse/bepp@1.3.10
         with: 
           file: ./bepp.config.yml
 
